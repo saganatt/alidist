@@ -20,6 +20,8 @@ incremental_recipe: |
 ---
 #!/bin/sh
 
+CMAKE_BUILD_TYPE=DEBUG
+
 if [[ $ALIBUILD_O2PHYSICS_TESTS ]]; then
   # Impose extra errors.
   CXXFLAGS="${CXXFLAGS} -Werror -Wno-error=deprecated-declarations"
