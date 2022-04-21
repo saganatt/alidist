@@ -161,6 +161,7 @@ valid_defaults:
 ---
 #!/bin/sh
 export ROOTSYS=$ROOT_ROOT
+CMAKE_BUILD_TYPE=DEBUG
 
 if [[ -f $GPU_SYSTEM_ROOT/etc/gpu-features-available.sh ]]; then
   source $GPU_SYSTEM_ROOT/etc/gpu-features-available.sh
