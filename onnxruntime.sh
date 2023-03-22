@@ -1,7 +1,7 @@
 package: ONNXRuntime
 version: "%(tag_basename)s"
-tag: v1.12.1-alice1
-source: https://github.com/alisw/onnxruntime.git
+tag: v1.14.1-alice1
+source: https://github.com/saganatt/onnxruntime.git
 requires:
   - protobuf
   - re2
@@ -16,13 +16,13 @@ build_requires:
 #!/bin/bash -e
 
 pushd $SOURCEDIR
-  git submodule update --init -- cmake/external/date
+  #git submodule update --init -- cmake/external/date
   git submodule update --init -- cmake/external/onnx
   git submodule update --init -- cmake/external/eigen
-  git submodule update --init -- cmake/external/nsync
-  git submodule update --init -- cmake/external/SafeInt
-  git submodule update --init -- cmake/external/json
-  git submodule update --init -- cmake/external/pytorch_cpuinfo
+  #git submodule update --init -- cmake/external/nsync
+  #git submodule update --init -- cmake/external/SafeInt
+  #git submodule update --init -- cmake/external/json
+  #git submodule update --init -- cmake/external/pytorch_cpuinfo
 popd
 
 mkdir -p $INSTALLROOT
@@ -33,7 +33,7 @@ cmake "$SOURCEDIR/cmake" \
       -DCMAKE_INSTALL_LIBDIR=lib \
       -DPYTHON_EXECUTABLE=$(python3 -c "import sys; print(sys.executable)") \
       -Donnxruntime_BUILD_UNIT_TESTS=OFF \
-      -Donnxruntime_PREFER_SYSTEM_LIB=ON \
+      #-Donnxruntime_PREFER_SYSTEM_LIB=ON \ # not in newest onnxruntime
       -Donnxruntime_BUILD_SHARED_LIB=ON \
       -DProtobuf_USE_STATIC_LIBS=ON \
       ${PROTOBUF_ROOT:+-DProtobuf_LIBRARY=$PROTOBUF_ROOT/lib/libprotobuf.a} \
