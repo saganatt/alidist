@@ -33,7 +33,6 @@ cmake "$SOURCEDIR/cmake" \
       -DCMAKE_INSTALL_LIBDIR=lib \
       -DPYTHON_EXECUTABLE=$(python3 -c "import sys; print(sys.executable)") \
       -Donnxruntime_BUILD_UNIT_TESTS=OFF \
-      #-Donnxruntime_PREFER_SYSTEM_LIB=ON \ # not in newest onnxruntime
       -Donnxruntime_BUILD_SHARED_LIB=ON \
       -DProtobuf_USE_STATIC_LIBS=ON \
       ${PROTOBUF_ROOT:+-DProtobuf_LIBRARY=$PROTOBUF_ROOT/lib/libprotobuf.a} \
@@ -44,6 +43,8 @@ cmake "$SOURCEDIR/cmake" \
       ${RE2_ROOT:+-DRE2_INCLUDE_DIR=${RE2_ROOT}/include} \
       ${FLATBUFFERS_ROOT:+-DFLATBUFFERS_INCLUDE_DIR=${FLATBUFFERS_ROOT}/include} \
       ${BOOST_ROOT:+-DBOOST_INCLUDE_DIR=${BOOST_ROOT}/include}
+
+      #-Donnxruntime_PREFER_SYSTEM_LIB=ON \ # not in newest onnxruntime
 
 cmake --build . -- ${JOBS:+-j$JOBS} install
 
