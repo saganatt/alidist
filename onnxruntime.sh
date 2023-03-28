@@ -1,7 +1,7 @@
 package: ONNXRuntime
 version: "%(tag_basename)s"
-tag: v1.12.1-alice1
-source: https://github.com/alisw/onnxruntime.git
+tag: v1.12.1-iobinding-r
+source: https://github.com/saganatt/onnxruntime.git
 requires:
   - protobuf
   - re2
